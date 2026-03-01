@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Hiroyuki Iinuma Portfolio',
     description:
       '飯沼裕之のフロントエンドエンジニアのポートフォリオサイトです。',
-    url: 'https://your-domain.com',
+    url: 'https://hiroyuki-iinuma-portfolio.vercel.app/',
     siteName: 'Hiroyuki Iinuma Portfolio',
     images: [{ url: '/ogp.jpg', width: 1200, height: 630 }],
     locale: 'ja_JP',
