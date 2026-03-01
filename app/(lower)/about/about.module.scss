@@ -91,6 +91,7 @@ $aboutWrapPadding: clamp(30px, to-vw(60, 1280), 60px);
   }
 
   .aboutTextWrap {
+    color: $textblack;
     font-family: var(--font-noto), sans-serif;
     margin-top: 10px;
     position: relative;
