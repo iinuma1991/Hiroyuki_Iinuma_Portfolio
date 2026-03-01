@@ -1,0 +1,27 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+body {
+  background-color: #000;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 1940px;
+  padding: 10px 20px;
+
+  @include min-width($mobile) {
+    padding: 20px;
+  }
+
+  main {
+    margin-top: 60px;
+
+    @include min-width($mobile) {
+      margin-top: calc(clamp(80px, to-vw(100, 1280), 100px) + 10px);
+    }
+
+  }
+}

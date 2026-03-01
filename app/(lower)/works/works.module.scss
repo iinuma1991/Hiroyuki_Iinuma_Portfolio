@@ -1,0 +1,43 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.workList {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+
+  @include min-width($desktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  li {
+    @include BoxRadius;
+    @include hoverLink;
+
+    background-color: #fff;
+    border: 1px solid #fff;
+    overflow: hidden;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+
+    p {
+      border-top: 1px solid #000;
+      font-family: var(--font-noto), sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      padding: 10px;
+
+      @include min-width($mobile) {
+        font-size: clamp(18px, to-vw(30, 1280), 30px);
+      }
+
+      @include min-width($desktop) {
+        font-size: min(to-vw(30), 30px);
+        padding: 10px min(to-vw(20), 20px);
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@use './variables' as *;
+
+// 以下
+@mixin max-width($breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
+    @content;
+  }
+}
+
+// 以上
+@mixin min-width($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin BoxRadius {
+  border-radius: 10px;
+
+  @include min-width($mobile) {
+    border-radius: 20px;
+  }
+}
+
+@mixin hoverLink {
+  @include min-width($mobile) {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+@function to-vw($size, $base: 1920) {
+  @return #{calc($size / $base * 100)}vw;
+}

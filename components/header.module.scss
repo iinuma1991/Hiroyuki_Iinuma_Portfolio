@@ -1,0 +1,185 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.header {
+  background-color: #000;
+  left: 0;
+  margin: auto;
+  max-width: 1940px;
+  padding: 10px 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+
+  @include min-width($mobile) {
+    padding: 20px 20px 10px;
+  }
+}
+
+.headerBox {
+  align-items: center;
+  background-color: #f78400;
+  border-radius: 10px;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  margin: auto;
+  padding: 10px 20px;
+
+  @include min-width($mobile) {
+    border-radius: clamp(10px, to-vw(20, 1280), 20px);
+    height: clamp(80px, to-vw(100, 1280), 100px);
+    padding: 10px clamp(20px, to-vw(30, 1280), 30px);
+  }
+
+}
+
+.logo {
+  a {
+    display: block;
+
+    @include hoverLink;
+
+    img {
+      height: auto;
+      width: 86px;
+
+      @include min-width($mobile) {
+        width: clamp(120px, to-vw(160, 1280), 160px);
+      }
+
+    }
+  }
+}
+
+.hamburger {
+  align-items: center;
+  background: none;
+  border: none;
+  display: none;
+  flex-wrap: wrap;
+  gap: 2px;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+
+
+  @include max-width($mobile) {
+    display: flex;
+  }
+
+  span {
+    background: white;
+    border-radius: 2px;
+    display: block;
+    height: 3px;
+    transition: all 0.1s ease;
+    width: 20px;
+  }
+
+  &.active {
+    span {
+      inset: 0;
+      margin: auto;
+      position: absolute;
+
+      &:nth-child(1) {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+
+.nav {
+  display: none;
+
+  @include min-width($mobile) {
+    align-items: center;
+    display: flex;
+    gap: min(to-vw(10, 1280), 10px);
+  }
+
+  &.open {
+    backdrop-filter: blur(4px);
+    background-color: rgb(0 0 0 / 70%);
+    display: block;
+    gap: 20px;
+    height: calc(100vh - 60px);
+    left: 20px;
+    padding-block: 100px 0;
+    position: fixed;
+    top: 60px;
+    width: calc(100% - 40px);
+    z-index: 10;
+
+    div {
+      display: block;
+      margin: 0 auto;
+      max-width: 240px;
+      text-align: center;
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+
+  a,
+  button {
+    background-color: #fff;
+    border-radius: 30px;
+    color: #000;
+    font-family: var(--font-passion-one);
+    font-size: 3rem;
+    letter-spacing: 1.6px;
+    line-height: 1;
+    padding: 15px 20px;
+    position: relative;
+    transition: border 0.5s ease;
+    width: 100%;
+
+    @include min-width($mobile) {
+      font-size: clamp(18px, to-vw(20, 1280), 20px);
+      letter-spacing: clamp(1.6px, to-vw(2, 1280), 2px);
+      padding: clamp(10px, to-vw(12, 1280), 12px) clamp(20px, to-vw(30, 1280), 30px);
+
+      &:hover {
+        &::before {
+          border: 1px solid #000;
+          border-radius: 30px;
+          content: "";
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+      }
+    }
+
+
+
+    &.active {
+      background-color: #000;
+      color: #fff;
+      pointer-events: none;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+  }
+}

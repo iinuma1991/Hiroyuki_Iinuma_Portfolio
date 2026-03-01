@@ -1,0 +1,153 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.overlay {
+  backdrop-filter: blur(4px);
+  background: rgb(0 0 0 / 60%);
+  height: 100dvh;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+}
+
+.inner {
+  align-content: center;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+  min-height: 100dvh;
+  padding: 40px 0;
+  width: calc(100% - 40px);
+}
+
+.modal {
+  background: #fff;
+  border-radius: 20px;
+  font-family: var(--font-noto), sans-serif;
+  padding: 90px 20px;
+  position: relative;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  z-index: 20;
+
+  @include hoverLink;
+
+
+  @include min-width($desktop) {
+    height: 40px;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+  }
+
+  span {
+    background: rgb(0 0 0);
+    border-radius: 2px;
+    display: block;
+    height: 4px;
+    inset: 0;
+    margin: auto;
+    position: absolute;
+    transition: all 0.1s ease;
+    width: 25px;
+
+    @include min-width($desktop) {
+      width: 30px;
+    }
+
+    &:nth-child(1) {
+      transform: rotate(-45deg);
+    }
+
+    &:nth-child(2) {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.mailText {
+  font-size: 1.6rem;
+
+  @include min-width($mobile) {
+    font-size: clamp(16px, to-vw(20, 1280), 20px);
+  }
+}
+
+.mailLink {
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 40px;
+  color: #000;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin: 20px auto 0;
+  max-width: 350px;
+  position: relative;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  width: calc(100% - 60px);
+
+  @include min-width($mobile) {
+    height: clamp(50px, to-vw(60, 1280), 60px);
+    margin-top: clamp(20px, to-vw(30, 1280), 30px);
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
+
+      span {
+        &::before {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+
+
+
+  span {
+    align-items: center;
+    display: flex;
+    font-size: 1.6rem;
+    line-height: 1;
+
+    @include min-width($mobile) {
+      font-size: clamp(16px, to-vw(20, 1280), 20px);
+    }
+
+    &::before {
+      background-color: #000;
+      content: "";
+      display: inline-block;
+      height: 24px;
+      margin-right: 5px;
+      margin-top: 3px;
+      mask-image: url('../public/icon/icon_mail.svg');
+      mask-position: center bottom;
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      transition: background-color 0.5s ease;
+      width: 24px;
+
+      @include min-width($mobile) {
+        height: clamp(24px, to-vw(24, 1280), 32px);
+        width: clamp(24px, to-vw(24, 1280), 32px);
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.secondBody {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+  position: relative;
+
+  @include min-width($mobile) {
+    display: block;
+  }
+}
+
+.secondTitleWrapper {
+  @include min-width($mobile) {
+    left: 0;
+    margin: auto;
+    max-width: 1920px;
+    position: fixed;
+    right: 0;
+    top: clamp(110px, to-vw(130, 1280), 130px);
+    width: calc(100% - 40px);
+    z-index: 2;
+  }
+
+
+  .secondTitle {
+    color: #fff;
+    font-family: var(--font-passion-one), sans-serif;
+    font-size: 5rem;
+    line-height: 0.9;
+
+    @include min-width($mobile) {
+      font-size: clamp(50px, to-vw(100, 1280), 100px);
+      padding: clamp(20px, to-vw(30, 1280), 30px) clamp(10px, to-vw(20, 1280), 20px);
+      width: clamp(200px, to-vw(300, 1280), 300px);
+    }
+  }
+}
+
+.secondContent {
+  font-family: var(--font-noto), sans-serif;
+  position: relative;
+  z-index: 5;
+
+  @include min-width($mobile) {
+    margin-left: clamp(200px, to-vw(300, 1280), 300px);
+  }
+}
+
+.secondBackToTop {
+  font-family: var(--font-passion-one), sans-serif;
+
+  @include min-width($mobile) {
+    bottom: 20px;
+    left: 0;
+    margin: auto;
+    max-width: 1920px;
+    position: fixed;
+    right: 0;
+    width: calc(100% - 40px);
+    z-index: 2;
+  }
+
+  div {
+    padding-block: 30px;
+
+    @include min-width($mobile) {
+      padding-block: 0;
+      width: clamp(200px, to-vw(300, 1280), 300px);
+    }
+
+    a {
+      @include hoverLink;
+
+      align-items: center;
+      border: 3px solid #fff;
+      border-radius: 40px;
+      display: flex;
+      height: 60px;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 10px 20px;
+      position: relative;
+      width: 240px;
+
+      @include min-width($mobile) {
+        height: clamp(60px, to-vw(80, 1280), 80px);
+        padding: 0;
+        width: clamp(180px, to-vw(260, 1280), 260px);
+      }
+
+
+      &::before {
+        background-image: url('../../public/bttop_arrow.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 20px auto;
+        content: "";
+        display: inline-block;
+        height: 20px;
+        margin-right: 10px;
+        width: 20px;
+
+        @include min-width($mobile) {
+          background-size: clamp(20px, to-vw(30, 1280), 30px) auto;
+          height: clamp(20px, to-vw(40, 1280), 40px);
+          margin-right: clamp(5px, to-vw(10, 1280), 10px);
+          width: clamp(20px, to-vw(40, 1280), 40px);
+        }
+      }
+
+      span {
+        color: #fff;
+        font-size: 2rem;
+        line-height: 1;
+
+        @include min-width($mobile) {
+          font-size: clamp(20px, to-vw(30, 1280), 30px);
+        }
+      }
+    }
+  }
+
+
+}

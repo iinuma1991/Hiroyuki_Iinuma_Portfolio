@@ -1,0 +1,344 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+$colWidth: calc(100% / 16);
+$colHeight: calc(100% / 10);
+$boxViewWidth: calc(100vw - 20px);
+
+@keyframes scroll {
+  from {
+    background-position: 0 center;
+  }
+
+
+  to {
+    background-position: -2000px center;
+  }
+}
+
+@include min-width($mobile) {
+  @keyframes scroll {
+    from {
+      background-position: 0 center;
+    }
+
+    to {
+      background-position: -3000px center;
+    }
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes swing2 {
+  0% {
+    transform: scale(1.0);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@mixin hoverScale {
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.6;
+
+    .ItemBox {
+      &::before {
+        background-image: url('../public/link-arrow_b.svg');
+      }
+
+      .ItemImg {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.topContainer {
+  @include min-width($mobile) {
+    height: calc(100vh - 130px);
+    max-height: 1810px;
+    min-height: 930px;
+  }
+
+  @include min-width($tablet) {
+    height: calc(100vh - 150px);
+  }
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+  height: 100%;
+  position: relative;
+
+  @include min-width($mobile) {
+    display: block;
+  }
+
+  li {
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    @include BoxRadius;
+
+    @include min-width($mobile) {
+      position: absolute;
+    }
+
+    .ItemBg {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      &.Link {
+        @include hoverScale;
+
+        .ItemBox {
+          &::before {
+            background-image: url('../public/link-arrow_w.svg');
+            background-size: contain;
+            bottom: 20px;
+            content: '';
+            height: 70px;
+            position: absolute;
+            right: 20px;
+            width: 70px;
+            z-index: 4;
+
+            @include max-width($tablet) {
+              bottom: 10px;
+              height: 40px;
+              right: 10px;
+              width: 40px;
+            }
+          }
+        }
+      }
+
+      .ItemBox {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        padding: 20px;
+        width: 100%;
+        z-index: 3;
+
+        @include min-width($mobile) {
+          left: 0;
+          position: absolute;
+          top: 0;
+        }
+      }
+
+      .ItemImg {
+        height: auto;
+        position: relative;
+        transition: transform 0.3s ease;
+        z-index: 3;
+      }
+    }
+
+    &.works {
+      height: $boxViewWidth;
+
+      @include min-width($mobile) {
+        height: calc(($colHeight * 8) - 5px);
+        left: 0;
+        top: calc(($colHeight * 2) + 5px);
+        width: calc(($colWidth * 9) - 5px);
+      }
+
+      .ItemBg {
+        background-image: url('../public/bg_mesh.jpg');
+        background-repeat: repeat;
+        background-size: 200px auto;
+
+        .ItemBox {
+          padding-left: calc(100% / 550 * 40);
+        }
+      }
+    }
+
+    &.skills {
+      min-height: 170px;
+
+      @include min-width($mobile) {
+        height: calc(($colHeight * 6) - 5px);
+        right: 0;
+        top: calc(($colHeight * 2) + 5px);
+        width: calc(($colWidth * 7) - 5px);
+      }
+
+      .ItemBg {
+        background-color: #00b2ff;
+
+        &::before {
+          animation: scroll 30s linear infinite;
+          background-image: url('../public/bg_skill.svg');
+          background-repeat: repeat-x;
+          background-size: 2000px auto;
+          content: '';
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 100%;
+          z-index: 1;
+
+          @include min-width($mobile) {
+            background-size: 3000px auto;
+            height: 53%;
+          }
+        }
+
+        .ItemBox {
+          img {
+            position: relative;
+            z-index: 3;
+          }
+        }
+      }
+    }
+
+    &.about {
+      min-height: 170px;
+
+      @include min-width($mobile) {
+        height: calc(($colHeight * 2) - 5px);
+        right: 0;
+        top: 0;
+        width: calc(($colWidth * 11) - 5px);
+      }
+
+      .ItemBg {
+        background-color: #95c036;
+
+        &::before,
+        &::after {
+          background-repeat: no-repeat;
+          background-size: contain;
+          content: '';
+          position: absolute;
+          z-index: 1;
+
+          @include min-width($mobile) {
+            bottom: 0;
+            margin: auto;
+            top: 0;
+          }
+        }
+
+        &::before {
+          animation: swing2 3s ease-in-out infinite;
+          background-image: url('../public/about_left.svg');
+          bottom: -3px;
+          height: max(to-vw(90, 390), 110px);
+          left: -19px;
+          width: max(to-vw(128, 390), 156px);
+
+          @include min-width($mobile) {
+            background-position: center left;
+            background-size: calc(100% + 5px) auto;
+            height: 100%;
+            left: -5px;
+            max-width: 269px;
+            width: 40%;
+          }
+        }
+
+        &::after {
+          animation: swing 3s ease-in-out infinite;
+          background-image: url('../public/about_right.svg');
+          bottom: -3px;
+          height: max(to-vw(90, 390), 110px);
+          right: 13px;
+          width: max(to-vw(90, 390), 113px);
+
+          @include min-width($mobile) {
+            background-position: right center;
+            background-size: contain;
+            height: 100%;
+            max-width: 189px;
+            right: 30px;
+            width: 30%;
+
+          }
+        }
+
+        .ItemBox {
+          picture {
+            width: 100%;
+
+            img {
+              margin: auto;
+              max-width: 290px;
+              width: 100%;
+
+              @include min-width($desktop) {
+                max-width: 782px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.contact {
+      min-height: 170px;
+
+      button {
+        @include hoverLink;
+      }
+
+      @include min-width($mobile) {
+        height: calc(($colHeight * 2) - 10px);
+        right: 0;
+        top: calc(($colHeight * 8) + 10px);
+        width: calc(($colWidth * 7) - 5px);
+      }
+
+      .ItemBg {
+        background-color: #999;
+      }
+    }
+
+    &.port {
+      min-height: 130px;
+
+      @include min-width($mobile) {
+        height: calc(($colHeight * 2) - 5px);
+        left: 0;
+        top: 0;
+        width: calc(($colWidth * 5) - 5px);
+      }
+    }
+  }
+}

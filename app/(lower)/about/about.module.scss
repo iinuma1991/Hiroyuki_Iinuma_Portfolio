@@ -1,0 +1,130 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+$headerPadding: clamp(20px, to-vw(30, 1280), 30px);
+$headerHeight: calc(clamp(80px, to-vw(100, 1280), 100px) + 30px);
+$aboutWrapPadding: clamp(30px, to-vw(60, 1280), 60px);
+
+@keyframes swing {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+.aboutContainer {
+  @include min-width($mobile) {
+    padding-top: $headerPadding;
+  }
+
+}
+
+.aboutWrap {
+  @include BoxRadius;
+
+  background-color: #fff;
+  display: block;
+  padding: 30px 30px 90px;
+  position: relative;
+
+  @include min-width($mobile) {
+    min-height: calc(100vh - ($headerPadding + $headerHeight) - 20px);
+    padding: $aboutWrapPadding;
+    padding-bottom: calc($aboutWrapPadding + 90px);
+  }
+
+
+  &::before {
+    animation: swing 3s ease-in-out infinite;
+    background-image: url('../../../public/about_right.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 0;
+    content: '';
+    height: 80px;
+    position: absolute;
+    right: 13px;
+    width: 80px;
+    z-index: 1;
+
+    @include min-width($mobile) {
+      background-position: right center;
+      background-size: contain;
+      bottom: 2;
+      height: calc(($aboutWrapPadding) + 90px);
+      right: 20px;
+      width: calc(($aboutWrapPadding) + 90px);
+    }
+  }
+
+  @include min-width($desktop) {
+    align-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .aboutImage {
+    margin: 0 auto;
+    position: relative;
+    width: 200px;
+    z-index: 2;
+
+    @include min-width($mobile) {
+      width: clamp(120px, to-vw(200, 1280), 200px);
+    }
+
+    @include min-width($desktop) {
+      width: 200px;
+    }
+
+    img {
+      height: auto;
+    }
+  }
+
+  .aboutTextWrap {
+    font-family: var(--font-noto), sans-serif;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+
+    @include min-width($desktop) {
+      width: calc(100% - 210px);
+    }
+
+
+    .aboutName {
+      font-size: 2.0rem;
+      font-weight: 700;
+
+      @include min-width($mobile) {
+        font-size: clamp(20px, to-vw(24, 1280), 24px);
+      }
+    }
+
+    .aboutText {
+      font-size: 1.6rem;
+      margin-top: 10px;
+
+      @include min-width($mobile) {
+        font-size: clamp(16px, to-vw(20, 1280), 20px);
+      }
+
+      span {
+        display: block;
+
+        &:not(:first-child) {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
