@@ -18,6 +18,7 @@ type Props = {
 
 export default function WorkModal({ work, onClose }: Props) {
   const [mounted, setMounted] = useState(false)
+  const isMultiple = work.images.length > 1
 
   useEffect(() => {
     setMounted(true)
@@ -78,23 +79,33 @@ export default function WorkModal({ work, onClose }: Props) {
             {/* Swiper */}
 
             <div className={styles.swiperBox}>
-              <Swiper
-                modules={[Pagination]}
-                pagination={{ clickable: true }}
-                spaceBetween={20}
-                slidesPerView={1}
-              >
-                {work.images.map((img, index) => (
-                  <SwiperSlide key={index}>
-                    <Image
-                      src={img}
-                      alt={work.title}
-                      width={1600}
-                      height={900}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              {isMultiple ? (
+                <Swiper
+                  modules={[Pagination]}
+                  pagination={{ clickable: true }}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                >
+                  {work.images.map((img, index) => (
+                    <SwiperSlide key={index}>
+                      <Image
+                        src={img}
+                        alt={work.title}
+                        width={1600}
+                        height={900}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                <Image
+                  className={styles.singleItem}
+                  src={work.images[0]}
+                  alt={work.title}
+                  width={1600}
+                  height={900}
+                />
+              )}
             </div>
           </div>
         </div>
