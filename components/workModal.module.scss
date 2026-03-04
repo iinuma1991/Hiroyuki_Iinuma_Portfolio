@@ -259,6 +259,12 @@
           }
         }
 
+        &.icon_js {
+          &::before {
+            background-image: url('../public/icon/icon_js.svg');
+          }
+        }
+
         &.icon_figma {
           &::before {
             background-image: url('../public/icon/icon_figma.svg');
@@ -294,6 +300,10 @@
     padding: 0 30px;
     width: min(to-vw(1360), 1360px);
   }
+
+  .singleItem {
+    height: auto;
+  }
 }
 
 /* Swiper 全体 */
@@ -327,7 +337,6 @@
 .modal :global(.swiper-slide img) {
   height: auto;
   width: 100%;
-
 }
 
 /* ページネーション */
