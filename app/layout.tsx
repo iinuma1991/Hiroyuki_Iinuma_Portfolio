@@ -11,6 +11,9 @@ import type { Metadata, Viewport } from 'next'
 export const metadata: Metadata = {
   title: 'Hiroyuki Iinuma Portfolio',
   description: '飯沼裕之のフロントエンドエンジニアのポートフォリオサイトです。',
+  verification: {
+    google: 'Z2GImCBtRKiV_Vx_ZA5s7Rqb6xRTNLjSgmHGEw3q0lQ',
+  },
   openGraph: {
     title: 'Hiroyuki Iinuma Portfolio',
     description:

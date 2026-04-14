@@ -10,6 +10,7 @@ import 'swiper/css'
 import { Pagination } from 'swiper/modules'
 import 'swiper/css/pagination'
 import { appLabels } from '@/data/works'
+import Link from 'next/link'
 
 type Props = {
   work: Work
@@ -49,6 +50,17 @@ export default function WorkModal({ work, onClose }: Props) {
                 <p className={styles.workClient}>
                   <span className={styles.workHead}>クライアント:</span>
                   {work.client}
+                </p>
+              )}
+              {work.link && (
+                <p className={styles.workLink}>
+                  <Link
+                    href={work.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    リンク先
+                  </Link>
                 </p>
               )}
               <div className={styles.workApp}>
