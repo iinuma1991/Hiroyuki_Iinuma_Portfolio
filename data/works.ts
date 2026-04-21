@@ -4,6 +4,7 @@ export type Work = {
   thumbnail: string
   days: string
   client?: string
+  link?: string
   apps: string[]
   images: string[]
   projectProcess: string
@@ -22,17 +23,6 @@ export const appLabels: Record<string, string> = {
 }
 
 export const worksData: Work[] = [
-  {
-    id: 'kintotetsu',
-    title: '『菌と鉄』公式サイト',
-    thumbnail: '/works/kintotetsu_01.jpg',
-    days: '2026/02',
-    apps: ['html', 'css', 'js'],
-    images: ['/works/kintotetsu_01.jpg'],
-    projectProcess: 'フロントエンドコーディング',
-    projectText: `アニメ『菌と鉄』公式サイトのフロントエンド実装を担当しました。
-    作品の世界観に合わせ、スクロールトリガーアニメーションや背景画像のパララックスを実装しています。`,
-  },
   {
     id: 'port',
     title: 'Iinuma Hiroyuki Portfolio',
