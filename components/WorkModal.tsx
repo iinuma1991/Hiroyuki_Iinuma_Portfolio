@@ -105,6 +105,8 @@ export default function WorkModal({ work, onClose }: Props) {
                         alt={work.title}
                         width={1600}
                         height={900}
+                        loading="eager"
+                        priority
                       />
                     </SwiperSlide>
                   ))}
@@ -116,6 +118,8 @@ export default function WorkModal({ work, onClose }: Props) {
                   alt={work.title}
                   width={1600}
                   height={900}
+                  loading="eager"
+                  priority
                 />
               )}
             </div>

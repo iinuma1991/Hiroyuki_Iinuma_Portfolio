@@ -12,8 +12,8 @@ export default function Works() {
   return (
     <div className={styles.worksContainer}>
       <div className={styles.worksGenre}>
-        <div className="item ">Professional Work</div>
-        <div className="item is-active">Private Work</div>
+        <div className={styles.item + ' ' + styles.isActive}>Private Work</div>
+        <div className={styles.item}>Professional Work</div>
       </div>
       <ul className={styles.workList}>
         {worksData.map((work) => (
@@ -23,6 +23,8 @@ export default function Works() {
               alt={work.title}
               width={785}
               height={412}
+              loading="eager"
+              priority
             />
             <p>{work.title}</p>
           </li>

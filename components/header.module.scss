@@ -180,6 +180,11 @@
       color: #fff;
       pointer-events: none;
       transition: background-color 0.5s ease, color 0.5s ease;
+
+      @include max-width($mobile) {
+        border: 1px solid #fff;
+
+      }
     }
   }
 }

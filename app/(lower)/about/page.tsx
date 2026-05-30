@@ -11,6 +11,8 @@ export default function About() {
             alt="iinuma hiroyuki logo"
             width={1000}
             height={1000}
+            loading="eager"
+            priority
           ></Image>
         </div>
         <div className={styles.aboutTextWrap}>

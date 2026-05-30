@@ -46,12 +46,8 @@ export default function Header() {
         <div className={styles.logo}>
           <Link onClick={() => setIsOpen(false)} href="/">
             <h1>
-              <Image
-                src="/title_wht.svg"
-                alt="Iinuma Hiroyuki Portfolio"
-                width={161}
-                height={56}
-              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/title_wht.svg" alt="Iinuma Hiroyuki Portfolio" />
             </h1>
           </Link>
         </div>
