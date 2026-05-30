@@ -1,4 +1,4 @@
-export type Work = {
+export type BaseWork = {
   id: string
   title: string
   thumbnail: string
@@ -8,6 +8,7 @@ export type Work = {
   images: string[]
   projectProcess: string
   projectText: string
+  link?: string
 }
 
 export const appLabels: Record<string, string> = {
@@ -16,10 +17,13 @@ export const appLabels: Record<string, string> = {
   ae: 'After Effects',
   html: 'HTML',
   css: 'CSS',
+  vue: 'Vue',
   ts: 'TypeScript',
   js: 'JavaScript',
   figma: 'Figma',
 }
+
+export type Work = BaseWork
 
 export const worksData: Work[] = [
   // {
