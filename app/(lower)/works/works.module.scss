@@ -1,12 +1,33 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
+
+.worksGenre {
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--font-passion-one), sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  gap: 20px;
+  line-height: 1;
+
+  @include min-width($mobile) {
+    font-size: clamp(40px, to-vw(60, 1280), 60px);
+    margin-bottom: clamp(20px, to-vw(30, 1280), 30px);
+  }
+
+
+}
+
 .workList {
   display: grid;
-  gap: 10px;
+  gap: 20px;
   grid-template-columns: repeat(1, 1fr);
+  margin-top: 40px;
 
   @include min-width($desktop) {
+    gap: 25px;
     grid-template-columns: repeat(2, 1fr);
   }
 

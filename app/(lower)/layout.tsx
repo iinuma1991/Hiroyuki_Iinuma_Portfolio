@@ -15,7 +15,7 @@ export default function RootLayout({
     '/skills': 'Skills',
     '/works': (
       <>
-        My
+        Private
         <br />
         Works
       </>

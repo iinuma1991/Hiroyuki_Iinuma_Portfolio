@@ -11,6 +11,10 @@ export default function Works() {
 
   return (
     <div className={styles.worksContainer}>
+      <div className={styles.worksGenre}>
+        <div className="item ">Professional Work</div>
+        <div className="item is-active">Private Work</div>
+      </div>
       <ul className={styles.workList}>
         {worksData.map((work) => (
           <li key={work.id} onClick={() => setSelectedWork(work)}>
