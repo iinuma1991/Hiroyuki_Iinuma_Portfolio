@@ -3,7 +3,6 @@
 
 .secondBody {
   display: grid;
-  gap: 10px;
   grid-template-columns: repeat(1, 1fr);
   position: relative;
 
@@ -41,11 +40,13 @@
 
 .secondContent {
   font-family: var(--font-noto), sans-serif;
+  margin-top: 40px;
   position: relative;
   z-index: 5;
 
   @include min-width($mobile) {
     margin-left: clamp(200px, to-vw(300, 1280), 300px);
+    margin-top: 0;
   }
 }
 
@@ -64,7 +65,7 @@
   }
 
   div {
-    padding-block: 30px;
+    padding-block: 50px;
 
     @include min-width($mobile) {
       padding-block: 0;

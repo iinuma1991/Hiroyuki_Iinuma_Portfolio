@@ -12,11 +12,9 @@
     color: #fff;
     font-family: var(--font-noto), sans-serif;
     font-size: 1.6rem;
-    margin-top: 20px;
 
     @include min-width($mobile) {
       font-size: clamp(16px, to-vw(20, 1280), 20px);
-      padding: 0;
     }
 
     span {
@@ -26,11 +24,9 @@
 }
 
 .skillsGroup {
-  margin-top: 20px;
+  margin-top: 40px;
 
   +.skillsGroup {
-    margin-top: 40px;
-
     @include min-width($mobile) {
       margin-top: clamp(40px, to-vw(80, 1280), 80px);
     }

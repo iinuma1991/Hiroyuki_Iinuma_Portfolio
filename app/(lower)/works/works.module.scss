@@ -13,12 +13,13 @@
   gap: 10px;
   justify-content: center;
   line-height: 1;
-  padding-top: 40px;
+  padding-top: 0;
 
   @include min-width($mobile) {
     font-size: clamp(20px, to-vw(40, 1280), 40px);
     gap: 20px;
     margin-bottom: clamp(20px, to-vw(30, 1280), 30px);
+    padding-top: clamp(20px, to-vw(40, 1280), 40px);
   }
 
   .item {
@@ -67,9 +68,13 @@
     border: 1px solid #fff;
     overflow: hidden;
 
+    button {
+      width: 100%;
+    }
+
     img {
       height: auto;
-      object-fit: cover;
+      width: 100%;
     }
 
     p {
