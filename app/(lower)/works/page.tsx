@@ -9,7 +9,7 @@ import WorkModal from '@/components/WorkModal'
 
 type Genre = 'private' | 'professional'
 
-const PASSWORD = 'aaa'
+const PASSWORD = 'portfolio2026'
 const STORAGE_KEY = 'professional_unlocked'
 
 export default function Works() {
@@ -18,12 +18,8 @@ export default function Works() {
     Work | ProfessionalWork | null
   >(null)
   const [unlocked, setUnlocked] = useState(false)
-  const [showGate, setShowGate] = useState(false)
-  const [input, setInput] = useState('')
-  const [error, setError] = useState(false)
 
   useEffect(() => {
-    // 一度解除済みなら再入力不要
     if (localStorage.getItem(STORAGE_KEY) === 'true') {
       setUnlocked(true)
     }
@@ -34,20 +30,17 @@ export default function Works() {
   const handleProfessionalClick = () => {
     if (unlocked) {
       setGenre('professional')
-    } else {
-      setShowGate(true)
+      return
     }
-  }
 
-  const handleUnlock = () => {
-    if (input === PASSWORD) {
+    const value = window.prompt('パスワードを入力してください')
+    if (value === PASSWORD) {
       setUnlocked(true)
-      setShowGate(false)
       setGenre('professional')
-      setError(false)
       localStorage.setItem(STORAGE_KEY, 'true')
-    } else {
-      setError(true)
+      // target.classList.add は不要！
+    } else if (value !== null) {
+      window.alert('パスワードが違います')
     }
   }
 
@@ -55,47 +48,18 @@ export default function Works() {
     <div className={styles.worksContainer}>
       <div className={styles.worksGenre}>
         <div
-          className={
-            styles.item + (genre === 'private' ? ' ' + styles.isActive : '')
-          }
+          className={`${styles.item} ${genre === 'private' ? styles.isActive : ''}`}
           onClick={() => setGenre('private')}
         >
           Private Work
         </div>
         <div
-          className={
-            styles.item +
-            (genre === 'professional' ? ' ' + styles.isActive : '')
-          }
+          className={`${styles.item} ${styles.itemProfessional} ${genre === 'professional' ? styles.isActive : ''} ${unlocked ? styles.unlocked : styles.locked}`}
           onClick={handleProfessionalClick}
         >
           Professional Work
-          <button
-            className={styles.keyButton}
-            onClick={(e) => {
-              e.stopPropagation()
-              alert('プロフェッショナルワークはパスワードで保護されています')
-            }}
-          >
-            i
-          </button>
         </div>
       </div>
-
-      {showGate && (
-        <div className={styles.passwordGate}>
-          <p>パスワードを入力してください</p>
-          <input
-            type="password"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleUnlock()}
-            autoFocus
-          />
-          <button onClick={handleUnlock}>解除</button>
-          {error && <p className={styles.error}>パスワードが違います</p>}
-        </div>
-      )}
 
       <ul className={styles.workList}>
         {currentData.map((work, index) => (

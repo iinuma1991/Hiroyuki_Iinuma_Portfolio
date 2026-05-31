@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",
     "lottie-react": "^2.4.1",
     "next": "^16.2.6",

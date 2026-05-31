@@ -13,30 +13,30 @@
   gap: 10px;
   justify-content: center;
   line-height: 1;
-  padding-top: 0;
 
   @include min-width($mobile) {
     font-size: clamp(20px, to-vw(40, 1280), 40px);
     gap: 20px;
-    margin-bottom: clamp(20px, to-vw(30, 1280), 30px);
   }
 
   .item {
+    align-items: center;
     background-color: $bgWhite;
     border: 2px solid $mainblack;
     border-radius: 30px;
     cursor: pointer;
-    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    max-width: 285px;
     padding: 10px 20px;
-    text-align: center;
     width: 100%;
 
     @include hoverLink;
 
-
     @include min-width($mobile) {
       max-width: none;
-      width: clamp(200px, to-vw(400, 1280), 400px);
+      padding: 10px 40px;
+      width: clamp(2px, to-vw(400, 1280), 400px);
     }
 
     &.isActive {
@@ -44,6 +44,37 @@
       border-color: $mainblack;
       color: $mainWhite;
       pointer-events: none;
+    }
+
+    &.itemProfessional {
+      position: relative;
+
+      &.locked {
+        &::after {
+          background-image: url("../../../public/icon/icon_lock.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          content: '';
+          display: block;
+          height: 0.8em;
+          margin: auto;
+          position: absolute;
+          right: 5px;
+          top: 0.3em;
+          width: 0.8em;
+
+          @include min-width($mobile) {
+            right: 15px;
+          }
+        }
+      }
+
+      &.unlocked {
+        &::after {
+          display: none;
+        }
+      }
     }
   }
 
@@ -53,11 +84,12 @@
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(1, 1fr);
-  margin-top: 40px;
+  margin-top: 20px;
 
   @include min-width($desktop) {
     gap: 25px;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
   }
 
   li {
