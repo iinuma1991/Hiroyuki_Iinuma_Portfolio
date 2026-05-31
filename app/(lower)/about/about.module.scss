@@ -44,9 +44,9 @@ $headerHeight: calc(clamp(80px, to-vw(100, 1280), 100px) + 30px);
     @include min-width($mobile) {
       background-position: right center;
       background-size: contain;
-      bottom: -40px;
+      bottom: 0;
       height: 120px;
-      right: -20px;
+      right: 0;
       width: 120px;
     }
   }

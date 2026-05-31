@@ -3,7 +3,7 @@
 
 
 $headerHeight: calc(clamp(80px, to-vw(100, 1280), 100px) + 40px);
-$secondWrapPadding: clamp(30px, to-vw(60, 1280), 60px);
+$secondWrapPadding: clamp(30px, to-vw(60, 1280), 60px) clamp(20px, to-vw(30, 1280), 30px);
 
 .secondBody {
   display: grid;
@@ -46,7 +46,7 @@ $secondWrapPadding: clamp(30px, to-vw(60, 1280), 60px);
   background-color: $bgWhite;
   font-family: var(--font-noto), sans-serif;
   margin-top: 30px;
-  padding: 30px 10px;
+  padding: 30px 20px;
   position: relative;
   z-index: 5;
 

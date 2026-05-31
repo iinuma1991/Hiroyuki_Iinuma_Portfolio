@@ -37,8 +37,8 @@
     @include min-width($mobile) {
       margin: 0;
       max-width: none;
-      padding: 10px 40px;
-      width: clamp(285px, to-vw(500, 1280), 500px);
+      padding: 10px clamp(20px, to-vw(40, 1280), 40px);
+      width: calc(50% - 10px);
     }
 
     +.item {
