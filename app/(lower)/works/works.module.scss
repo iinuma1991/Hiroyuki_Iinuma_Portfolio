@@ -5,17 +5,17 @@
 .worksGenre {
   align-items: center;
   color: $textblack;
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
   font-family: var(--font-passion-one), sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 400;
-  gap: 10px;
   justify-content: center;
   line-height: 1;
 
   @include min-width($mobile) {
-    font-size: clamp(20px, to-vw(40, 1280), 40px);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: clamp(25px, to-vw(40, 1280), 40px);
     gap: 20px;
   }
 
@@ -27,6 +27,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
     max-width: 285px;
     padding: 10px 20px;
     width: 100%;
@@ -34,9 +35,18 @@
     @include hoverLink;
 
     @include min-width($mobile) {
+      margin: 0;
       max-width: none;
       padding: 10px 40px;
-      width: clamp(2px, to-vw(400, 1280), 400px);
+      width: clamp(285px, to-vw(500, 1280), 500px);
+    }
+
+    +.item {
+      margin-top: 10px;
+
+      @include min-width($mobile) {
+        margin-top: 0;
+      }
     }
 
     &.isActive {
@@ -61,7 +71,6 @@
           margin: auto;
           position: absolute;
           right: 5px;
-          top: 0.3em;
           width: 0.8em;
 
           @include min-width($mobile) {

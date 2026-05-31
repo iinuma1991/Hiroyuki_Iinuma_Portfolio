@@ -9,40 +9,38 @@ import WorkModal from '@/components/WorkModal'
 
 type Genre = 'private' | 'professional'
 
-const PASSWORD = 'portfolio2026'
-const STORAGE_KEY = 'professional_unlocked'
+// const PASSWORD = 'portfolio2026'
+// const STORAGE_KEY = 'professional_unlocked'
 
 export default function Works() {
   const [genre, setGenre] = useState<Genre>('private')
   const [selectedWork, setSelectedWork] = useState<
     Work | ProfessionalWork | null
   >(null)
-  const [unlocked, setUnlocked] = useState(false)
+  // const [unlocked, setUnlocked] = useState(false)
 
-  useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY) === 'true') {
-      setUnlocked(true)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (localStorage.getItem(STORAGE_KEY) === 'true') {
+  //     setUnlocked(true)
+  //   }
+  // }, [])
 
   const currentData = genre === 'private' ? worksData : professionalData
 
-  const handleProfessionalClick = () => {
-    if (unlocked) {
-      setGenre('professional')
-      return
-    }
-
-    const value = window.prompt('パスワードを入力してください')
-    if (value === PASSWORD) {
-      setUnlocked(true)
-      setGenre('professional')
-      localStorage.setItem(STORAGE_KEY, 'true')
-      // target.classList.add は不要！
-    } else if (value !== null) {
-      window.alert('パスワードが違います')
-    }
-  }
+  // const handleProfessionalClick = () => {
+  //   if (unlocked) {
+  //     setGenre('professional')
+  //     return
+  //   }
+  //   const value = window.prompt('パスワードを入力してください')
+  //   if (value === PASSWORD) {
+  //     setUnlocked(true)
+  //     setGenre('professional')
+  //     localStorage.setItem(STORAGE_KEY, 'true')
+  //   } else if (value !== null) {
+  //     window.alert('パスワードが違います')
+  //   }
+  // }
 
   return (
     <div className={styles.worksContainer}>
@@ -54,8 +52,9 @@ export default function Works() {
           Private Work
         </div>
         <div
-          className={`${styles.item} ${styles.itemProfessional} ${genre === 'professional' ? styles.isActive : ''} ${unlocked ? styles.unlocked : styles.locked}`}
-          onClick={handleProfessionalClick}
+          className={`${styles.item} ${genre === 'professional' ? styles.isActive : ''}`}
+          onClick={() => setGenre('professional')}
+          // onClick={handleProfessionalClick}
         >
           Professional Work
         </div>
