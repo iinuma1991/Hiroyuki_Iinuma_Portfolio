@@ -70,6 +70,15 @@ export default function Works() {
           onClick={handleProfessionalClick}
         >
           Professional Work
+          <button
+            className={styles.keyButton}
+            onClick={(e) => {
+              e.stopPropagation()
+              alert('プロフェッショナルワークはパスワードで保護されています')
+            }}
+          >
+            i
+          </button>
         </div>
       </div>
 

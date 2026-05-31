@@ -2,7 +2,7 @@
 @use '../styles/mixins' as *;
 
 .header {
-  background-color: #000;
+  background-color: $mainblack;
   left: 0;
   margin: auto;
   max-width: 1940px;
@@ -161,7 +161,7 @@
 
       &:hover {
         &::before {
-          border: 2px solid #000;
+          border: 2px solid $mainblack;
           border-radius: 30px;
           content: "";
           height: 100%;
@@ -176,13 +176,13 @@
 
 
     &.active {
-      background-color: #000;
-      color: #fff;
+      background-color: $mainblack;
+      color: $bgWhite;
       pointer-events: none;
       transition: background-color 0.5s ease, color 0.5s ease;
 
       @include max-width($mobile) {
-        border: 1px solid #fff;
+        border: 1px solid $bgWhite;
 
       }
     }

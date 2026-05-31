@@ -4,7 +4,7 @@
 
 .worksGenre {
   align-items: center;
-  color: #fff;
+  color: $textblack;
   display: flex;
   flex-wrap: wrap;
   font-family: var(--font-passion-one), sans-serif;
@@ -19,11 +19,11 @@
     font-size: clamp(20px, to-vw(40, 1280), 40px);
     gap: 20px;
     margin-bottom: clamp(20px, to-vw(30, 1280), 30px);
-    padding-top: clamp(20px, to-vw(40, 1280), 40px);
   }
 
   .item {
-    border: 2px solid #fff;
+    background-color: $bgWhite;
+    border: 2px solid $mainblack;
     border-radius: 30px;
     cursor: pointer;
     max-width: 300px;
@@ -40,9 +40,9 @@
     }
 
     &.isActive {
-      background-color: #fff;
-      border-color: #fff;
-      color: $textblack;
+      background-color: $mainblack;
+      border-color: $mainblack;
+      color: $mainWhite;
       pointer-events: none;
     }
   }
@@ -64,8 +64,8 @@
     @include BoxRadius;
     @include hoverLink;
 
-    background-color: #fff;
-    border: 2px solid #fff;
+    background-color: $mainblack;
+    border: 2px solid $mainblack;
     overflow: hidden;
 
     button {
@@ -78,8 +78,7 @@
     }
 
     p {
-      border-top: 2px solid #000;
-      color: $textblack;
+      color: $mainWhite;
       font-family: var(--font-noto), sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
