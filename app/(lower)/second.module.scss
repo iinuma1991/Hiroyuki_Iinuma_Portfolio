@@ -27,11 +27,11 @@
   .secondTitle {
     color: #fff;
     font-family: var(--font-passion-one), sans-serif;
-    font-size: 4rem;
+    font-size: 6rem;
     line-height: 0.9;
 
     @include min-width($mobile) {
-      font-size: clamp(40px, to-vw(80, 1280), 80px);
+      font-size: clamp(60px, to-vw(80, 1280), 80px);
       padding: clamp(20px, to-vw(30, 1280), 30px) clamp(10px, to-vw(20, 1280), 20px);
       width: clamp(200px, to-vw(300, 1280), 300px);
     }

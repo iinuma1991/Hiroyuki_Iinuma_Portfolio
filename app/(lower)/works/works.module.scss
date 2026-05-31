@@ -23,7 +23,7 @@
   }
 
   .item {
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     border-radius: 30px;
     cursor: pointer;
     max-width: 300px;
@@ -65,7 +65,7 @@
     @include hoverLink;
 
     background-color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     overflow: hidden;
 
     button {
@@ -78,7 +78,7 @@
     }
 
     p {
-      border-top: 1px solid #000;
+      border-top: 2px solid #000;
       color: $textblack;
       font-family: var(--font-noto), sans-serif;
       font-size: 1.8rem;
