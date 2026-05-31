@@ -31,6 +31,11 @@ export const metadata: Metadata = {
       '飯沼裕之のフロントエンドエンジニアのポートフォリオサイトです。',
     images: ['/ogp.jpg'],
   },
+  metadataBase: new URL(
+    process.env.NODE_ENV === 'production'
+      ? 'https://hiroyuki-iinuma-portfolio.vercel.app/' // 本番のURL
+      : 'http://localhost:3000',
+  ),
 }
 
 export const viewport: Viewport = {
@@ -57,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html className={`${notoSans.variable} ${passionOne.variable}`} lang="ja">
-      <body className="body">
+      <body className="body" suppressHydrationWarning>
         <ModalProvider>
           <div className="container">
             <Header />

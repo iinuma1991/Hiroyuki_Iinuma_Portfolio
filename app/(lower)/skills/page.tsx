@@ -25,6 +25,8 @@ export default function Skills() {
                   alt={skill.title}
                   width={50}
                   height={50}
+                  loading="eager"
+                  priority
                 />
                 <div className={styles.itemTextBox}>
                   <p className={styles.itemTitle}>{skill.title}</p>

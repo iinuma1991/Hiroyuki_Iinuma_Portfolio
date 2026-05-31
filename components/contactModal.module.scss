@@ -26,7 +26,7 @@
 }
 
 .modal {
-  background: #fff;
+  background: $bgWhite;
   border-radius: 20px;
   font-family: var(--font-noto), sans-serif;
   padding: 90px 20px;
@@ -55,7 +55,7 @@
   }
 
   span {
-    background: rgb(0 0 0);
+    background: $mainblack;
     border-radius: 2px;
     display: block;
     height: 4px;
@@ -90,7 +90,7 @@
 
 .mailLink {
   align-items: center;
-  border: 2px solid #000;
+  border: 2px solid $mainblack;
   border-radius: 40px;
   color: $textblack;
   display: flex;
@@ -107,12 +107,12 @@
     margin-top: clamp(20px, to-vw(30, 1280), 30px);
 
     &:hover {
-      background-color: #000;
-      color: #fff;
+      background-color: $mainblack;
+      color: $bgWhite;
 
       span {
         &::before {
-          background-color: #fff;
+          background-color: $bgWhite;
         }
       }
     }
@@ -132,7 +132,7 @@
     }
 
     &::before {
-      background-color: #000;
+      background-color: $mainblack;
       content: "";
       display: inline-block;
       height: 24px;

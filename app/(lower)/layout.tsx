@@ -13,13 +13,7 @@ export default function RootLayout({
   const titleMap: Record<string, React.ReactNode> = {
     '/about': 'About',
     '/skills': 'Skills',
-    '/works': (
-      <>
-        My
-        <br />
-        Works
-      </>
-    ),
+    '/works': 'Works',
     '/contact': 'Contact',
   }
 

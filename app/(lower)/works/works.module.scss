@@ -1,22 +1,117 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
+
+.worksGenre {
+  align-items: center;
+  color: $textblack;
+  display: block;
+  font-family: var(--font-passion-one), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1;
+
+  @include min-width($mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: clamp(25px, to-vw(40, 1280), 40px);
+    gap: 20px;
+  }
+
+  .item {
+    align-items: center;
+    background-color: $bgWhite;
+    border: 2px solid $mainblack;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 285px;
+    padding: 10px 20px;
+    width: 100%;
+
+    @include hoverLink;
+
+    @include min-width($mobile) {
+      margin: 0;
+      max-width: none;
+      padding: 10px clamp(20px, to-vw(40, 1280), 40px);
+      width: calc(50% - 10px);
+    }
+
+    +.item {
+      margin-top: 10px;
+
+      @include min-width($mobile) {
+        margin-top: 0;
+      }
+    }
+
+    &.isActive {
+      background-color: $mainblack;
+      border-color: $mainblack;
+      color: $mainWhite;
+      pointer-events: none;
+    }
+
+    &.itemProfessional {
+      position: relative;
+
+      &.locked {
+        &::after {
+          background-image: url("../../../public/icon/icon_lock.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          content: '';
+          display: block;
+          height: 0.8em;
+          margin: auto;
+          position: absolute;
+          right: 5px;
+          width: 0.8em;
+
+          @include min-width($mobile) {
+            right: 15px;
+          }
+        }
+      }
+
+      &.unlocked {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
 .workList {
   display: grid;
-  gap: 10px;
+  gap: 20px;
   grid-template-columns: repeat(1, 1fr);
+  margin-top: 20px;
 
   @include min-width($desktop) {
+    gap: 25px;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
   }
 
   li {
     @include BoxRadius;
     @include hoverLink;
 
-    background-color: #fff;
-    border: 1px solid #fff;
+    background-color: $mainblack;
+    border: 2px solid $mainblack;
     overflow: hidden;
+
+    button {
+      width: 100%;
+    }
 
     img {
       height: auto;
@@ -24,8 +119,7 @@
     }
 
     p {
-      border-top: 1px solid #000;
-      color: $textblack;
+      color: $mainWhite;
       font-family: var(--font-noto), sans-serif;
       font-size: 1.8rem;
       font-weight: 700;

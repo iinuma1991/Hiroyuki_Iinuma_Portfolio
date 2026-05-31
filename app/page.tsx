@@ -39,6 +39,8 @@ export default function Home() {
                   alt="Skills"
                   width={750}
                   height={139}
+                  loading="eager"
+                  priority
                 />
               </div>
             </Link>
@@ -59,6 +61,8 @@ export default function Home() {
                     alt="About Me"
                     width={782}
                     height={95}
+                    loading="eager"
+                    priority
                   />
                 </picture>
               </div>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import styles from './workModal.module.scss'
-import { Work } from '@/data/works'
+import { BaseWork } from '@/data/works'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -13,7 +13,7 @@ import { appLabels } from '@/data/works'
 import Link from 'next/link'
 
 type Props = {
-  work: Work
+  work: BaseWork
   onClose: () => void
 }
 
@@ -105,6 +105,8 @@ export default function WorkModal({ work, onClose }: Props) {
                         alt={work.title}
                         width={1600}
                         height={900}
+                        loading="eager"
+                        priority
                       />
                     </SwiperSlide>
                   ))}
@@ -116,6 +118,8 @@ export default function WorkModal({ work, onClose }: Props) {
                   alt={work.title}
                   width={1600}
                   height={900}
+                  loading="eager"
+                  priority
                 />
               )}
             </div>

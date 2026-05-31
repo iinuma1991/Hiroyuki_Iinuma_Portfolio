@@ -1,9 +1,12 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+
+$headerHeight: calc(clamp(80px, to-vw(100, 1280), 100px) + 40px);
+$secondWrapPadding: clamp(30px, to-vw(60, 1280), 60px) clamp(20px, to-vw(30, 1280), 30px);
+
 .secondBody {
   display: grid;
-  gap: 10px;
   grid-template-columns: repeat(1, 1fr);
   position: relative;
 
@@ -28,11 +31,11 @@
   .secondTitle {
     color: #fff;
     font-family: var(--font-passion-one), sans-serif;
-    font-size: 5rem;
+    font-size: 6rem;
     line-height: 0.9;
 
     @include min-width($mobile) {
-      font-size: clamp(50px, to-vw(100, 1280), 100px);
+      font-size: clamp(60px, to-vw(80, 1280), 80px);
       padding: clamp(20px, to-vw(30, 1280), 30px) clamp(10px, to-vw(20, 1280), 20px);
       width: clamp(200px, to-vw(300, 1280), 300px);
     }
@@ -40,12 +43,19 @@
 }
 
 .secondContent {
+  background-color: $bgWhite;
   font-family: var(--font-noto), sans-serif;
+  margin-top: 30px;
+  padding: 30px 20px;
   position: relative;
   z-index: 5;
 
+  @include BoxRadius;
+
   @include min-width($mobile) {
     margin-left: clamp(200px, to-vw(300, 1280), 300px);
+    margin-top: $headerHeight;
+    padding: $secondWrapPadding;
   }
 }
 
@@ -64,7 +74,7 @@
   }
 
   div {
-    padding-block: 30px;
+    padding-block: 50px;
 
     @include min-width($mobile) {
       padding-block: 0;
