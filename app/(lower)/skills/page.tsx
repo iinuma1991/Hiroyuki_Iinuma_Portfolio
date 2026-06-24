@@ -5,14 +5,14 @@ import { skillsData } from '@/data/skills'
 export default function Skills() {
   return (
     <div className={styles.skillsContainer}>
-      <p className={styles.skillsText}>
+      {/* <p className={styles.skillsText}>
         本業ではフロントエンドエンジニアとしてWeb制作に携わりながら、
         <br />
         フリーランスとして地元イベントや店舗、
         <span>アーティストのロゴ・グッズデザインも手がけています。</span>
         <br />
         デザインの意図を理解した上で、実装まで一貫して対応できることを強みとしています。
-      </p>
+      </p> */}
       {skillsData.map((group) => (
         <div className={styles.skillsGroup} key={group.category}>
           <h3 className={styles.groupTitle}>{group.category}</h3>
@@ -30,7 +30,7 @@ export default function Skills() {
                 />
                 <div className={styles.itemTextBox}>
                   <p className={styles.itemTitle}>{skill.title}</p>
-                  <p className={styles.itemText}>{skill.text}</p>
+                  {/* <p className={styles.itemText}>{skill.text}</p> */}
                 </div>
               </li>
             ))}
