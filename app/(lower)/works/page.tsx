@@ -44,7 +44,7 @@ export default function Works() {
 
   return (
     <div className={styles.worksContainer}>
-      <div className={styles.worksGenre}>
+      {/* <div className={styles.worksGenre}>
         <div
           className={`${styles.item} ${genre === 'private' ? styles.isActive : ''}`}
           onClick={() => setGenre('private')}
@@ -58,7 +58,7 @@ export default function Works() {
         >
           Professional Work
         </div>
-      </div>
+      </div> */}
 
       <ul className={styles.workList}>
         {currentData.map((work, index) => (
