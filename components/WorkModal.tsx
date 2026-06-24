@@ -81,12 +81,12 @@ export default function WorkModal({ work, onClose }: Props) {
                 <span className={styles.workHead}>制作担当範囲:</span>
                 {work.projectProcess}
               </p>
-              <p
+              {/* <p
                 style={{ whiteSpace: 'pre-line' }}
                 className={styles.workProjectText}
               >
                 {work.projectText}
-              </p>
+              </p> */}
             </div>
             {/* Swiper */}
 
